@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+	<head>
+		<title>2025-11</title>
+		<dateCreated>Thu, 01 Jan 2026 19:26:51 GMT</dateCreated>
+		<dateModified>Thu, 01 Jan 2026 19:27:22 GMT</dateModified>
+		<ownerId>frank.mcpherson@gmail.com</ownerId>
+		<urlUpdateSocket>wss://drummer.land/</urlUpdateSocket>
+		<ownerName>Frank McPherson</ownerName>
+		<ownerEmail>frank.mcpherson@gmail.com</ownerEmail>
+		<expansionState>1</expansionState>
+		<lastCursor>1</lastCursor>
+		</head>
+	<body>
+		<outline text="November 2025" created="Mon, 03 Nov 2025 16:18:18 GMT" name="november2025" type="calendarMonth">
+			<outline text="November 17" created="Mon, 17 Nov 2025 16:14:49 GMT" type="calendarDay" name="17">
+				<outline text="Dave has connected Scripting News to his Wordpress site so that what he writes appears in both locations. I couldn't help but notice how Dave got around the Wordpress requirement for title in order to create a direct link to a post, which is to generate a standard title using the date of the post, which i show I have been doing it using IFTTT.  For example, look at &lt;a href=&quot;http://scripting.com/2025/11/17.html#a143301&quot;&gt;this on Scripting News&lt;/a&gt;, it's &lt;a href=&quot;https://daveverse.org/2025/11/17/3210/&quot;&gt;copy on Wordpress&lt;/a&gt;, as compared to one of my copies &lt;a href=&quot;https://frankmcpherson.blog/2025/11/11/a-while-back-in-search.html&quot;&gt;from micro.blog&lt;/a&gt; to &lt;a href=&quot;https://fjmnotes.com/2025/11/11/frank-blogged-on-november-11-2025-at-1111am/&quot;&gt;Wordpress&lt;/a&gt;. I was hoping Dave could influence Wordpress to improve how they handle titleless posts." created="Mon, 17 Nov 2025 16:14:50 GMT" type="outline"/>
+				</outline>
+			<outline text="November 14" created="Fri, 14 Nov 2025 15:50:06 GMT" type="calendarDay" name="14">
+				<outline text="There is &lt;a href=&quot;https://readwise.io/reader/shared/01ka1grzhnm873fqvskq69nnrp&quot;&gt;a web browser standard&lt;/a&gt; for creating links that jump directly to a snippet of text on a web page. For example, &lt;a href=&quot;https://info.frankmcpherson.net/whatIsFrankDoing.opml#:~:text=Completed%20the%2091%20mile%20CA%2DM%20Segment%20of%20the%20Pacific%20Crest%20Trail%20using%20the%20Walk%20The%20Distance%20App%20on%20November%203%2C%202025&quot;&gt;this link&lt;/a&gt; should take you to the middle of my now page in which I wrote that I completed the 91 mile CA-M segment of the Pacific Crest Trail. To make the link I use the mouse to highlight the text, right-click and click Copy Link to Highlight. Unfortunately only Safari loads the page with the selected text highlighted, the other browsers jump to the location but do not make it obvious what is the text specifically jumped to. This is a form permalinks link generated on this site and anchored to the hash at the end of every paragraph. " created="Fri, 14 Nov 2025 20:45:59 GMT" type="outline"/>
+				<outline text="The only thing of benefit for my Google Pixel 7a in &lt;a href=&quot;https://9to5google.com/2025/11/14/pixel-journal-app-8-9-series/&quot;&gt;the November 2025 Pixel drop&lt;/a&gt; is the theme packs, which I have no interest in because I have no interest in turning my phone in to an advertisement for Wicked." created="Fri, 14 Nov 2025 16:06:17 GMT" type="outline"/>
+				<outline text="In a country in which &lt;a href=&quot;https://pluralistic.net/2025/11/13/patients-not-customers/&quot;&gt;greed rules&lt;/a&gt;, is pedophilia &lt;a href=&quot;https://news.google.com/search?q=epstein%20files&amp;hl=en-US&amp;gl=US&amp;ceid=US%3Aen&quot;&gt;the line&lt;/a&gt; that cannot be crossed? (Probably not) We all know the real problem in our country is that greed for wealth and power, an idol, drives us to not accept constraints on anything, but most of us in the United States are conditioned to not address, let alone recognize, the problem. Heck, we &lt;a href=&quot;https://www.brennancenter.org/our-work/research-reports/congressional-stock-trading-explained&quot;&gt;allow people elected to Congress to get wealthy by trading stocks&lt;/a&gt; no matter the clear conflicts of interest and likely insider trading that sends the likes of &lt;a href=&quot;https://en.wikipedia.org/wiki/ImClone_stock_trading_case&quot;&gt;Martha Stewart to jail&lt;/a&gt;. &lt;a href=&quot;https://www.usatoday.com/story/entertainment/celebrities/2025/10/30/billie-eilish-billionaires-speech-wsj-innovator-awards/86985743007/&quot;&gt;The idea&lt;/a&gt; that any person can have too much money is &lt;a href=&quot;https://www.theguardian.com/commentisfree/2025/nov/05/billie-eilish-billionaires-super-rich&quot;&gt;heresy of the American religion&lt;/a&gt;, which itself is a heresy of &lt;a href=&quot;https://biblehub.com/matthew/6-24.htm&quot;&gt;the teachings of Jesus&lt;/a&gt;. And some dare to claim that the United States is a Christian nation? " created="Fri, 14 Nov 2025 15:50:07 GMT" type="markdown"/>
+				</outline>
+			<outline text="November 13" created="Thu, 13 Nov 2025 18:58:16 GMT" type="calendarDay" name="13">
+				<outline text="&lt;a href=&quot;https://writerdeckos.com/#about&quot;&gt;WriterdeckOS&lt;/a&gt;: Convert any laptop and most chromebooks into a writer deck into a device designed solely for writing. " created="Thu, 13 Nov 2025 18:59:26 GMT" type="outline"/>
+				<outline text="Install &lt;a href=&quot;https://balnce.ai/download&quot;&gt;this AI app on your smartphone&lt;/a&gt;, the thing that probably has stored on it, or has access to, your most personal of personal information. What could go wrong?" created="Thu, 13 Nov 2025 18:58:17 GMT" type="outline"/>
+				</outline>
+			<outline text="November 11" created="Tue, 11 Nov 2025 14:30:10 GMT" type="calendarDay" name="11">
+				<outline text="Last night was the 50th anniversary of &lt;a href=&quot;https://www.mprnews.org/story/2025/11/09/edmund-fitzgerald-shipwreck-legacy-continues-50-years-later&quot;&gt;the wreck of the Edmund Fitzgerald&lt;/a&gt;. I was in middle school at the time and don't recall the event when it happened but I do recall hearing &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Wreck_of_the_Edmund_Fitzgerald&quot;&gt;Gordon Lightfoot's ballad&lt;/a&gt; about it for the first time a year later on the school bus one morning." created="Tue, 11 Nov 2025 14:31:14 GMT" type="outline"/>
+				<outline text="I find it ironic that there is no link to the RSS feed for &lt;a href=&quot;http://scripting.com/&quot;&gt;Scripting News&lt;/a&gt; visible on the site." created="Tue, 11 Nov 2025 14:30:11 GMT" type="outline"/>
+				</outline>
+			<outline text="November 3" created="Mon, 03 Nov 2025 16:18:19 GMT" type="calendarDay" name="03">
+				<outline text="It is the beginning of November and the MLB season is done, as it should be. Now the new season starts with the kick-off of free agency." created="Mon, 03 Nov 2025 16:18:20 GMT" type="outline"/>
+				</outline>
+			</outline>
+		</body>
+	</opml>
