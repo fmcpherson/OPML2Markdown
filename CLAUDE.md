@@ -19,7 +19,7 @@ python3 opml_to_markdown.py input.opml output.md   # write to file
 python3 opml_to_markdown.py input.opml             # print to stdout
 ```
 
-**Single file convert, chronological order** — same output format as `opml_to_markdown.py`, but months and days are ordered oldest-first (January 1 at the top) instead of the source's reverse-chronological order:
+**Single file convert, chronological order** — same output format as `opml_to_markdown.py`, except that months and days are ordered oldest-first (January 1 at the top) instead of the source's reverse-chronological order, and inline HTML is converted to Markdown:
 ```bash
 python3 opml_to_markdown_chrono.py Daynotes.opml Daynotes_chronological.md   # write to file
 python3 opml_to_markdown_chrono.py Daynotes.opml                             # print to stdout
@@ -41,6 +41,7 @@ Each script has two main functions:
 - `_ordered_children(node)` returns a node's children with `calendarMonth` siblings (under the body or other containers) or `calendarDay` siblings (under a month) put in chronological order. Non-calendar nodes stay where they are.
 - Ordering comes from parsing heading text with `datetime.strptime`: months as `"%B %Y"` (e.g. "October 2026"), days as `"%B %d"` plus the parent month's year (e.g. "October 27"). If any heading in a sibling group can't be parsed, that group is simply reversed.
 - Bullets inside a `calendarDay` keep their original order.
+- `html_to_markdown(text)` converts inline HTML in outline text using `html.parser`: `a`, `b`/`strong`, `i`/`em`, `code`, `s`/`strike`/`del`, and `img` become Markdown, `br` becomes a space, and any other tag is dropped with its inner text kept.
 
 **Conversion rules (hardcoded):**
 

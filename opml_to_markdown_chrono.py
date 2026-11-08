@@ -8,9 +8,13 @@ Same formatting rules as opml_to_markdown.py:
   - outline children of calendarDay -> bulleted list items (- text)
   - all other nodes are ignored
 
-The only difference: calendarMonth and calendarDay nodes are sorted
-oldest-first (e.g. January 1 at the top). Bullets within a day keep
-their original order.
+Differences from opml_to_markdown.py:
+  - calendarMonth and calendarDay nodes are sorted oldest-first
+    (e.g. January 1 at the top). Bullets within a day keep their
+    original order.
+  - HTML inside outline text is converted to its Markdown equivalent
+    (links, bold, italic, code, strikethrough, images). Tags with no
+    equivalent are dropped and the text inside them is kept.
 
 Usage:
   python opml_to_markdown_chrono.py input.opml output.md
@@ -20,6 +24,94 @@ Usage:
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from html.parser import HTMLParser
+
+_INLINE_MARKERS = {
+    "b": "**",
+    "strong": "**",
+    "i": "*",
+    "em": "*",
+    "code": "`",
+    "s": "~~",
+    "strike": "~~",
+    "del": "~~",
+}
+
+
+def _markdown_url(url):
+    """Angle-bracket URLs containing characters that would end a Markdown link."""
+    return f"<{url}>" if any(c in url for c in " ()") else url
+
+
+def _render_tag(tag, attrs, inner):
+    """Render a closed tag as Markdown, keeping edge whitespace outside markers."""
+    label = inner.strip()
+    lead = inner[: len(inner) - len(inner.lstrip())]
+    trail = inner[len(inner.rstrip()) :]
+
+    if tag == "a":
+        href = attrs.get("href")
+        if not href:
+            return inner
+        return f"{lead}[{label or href}]({_markdown_url(href)}){trail}"
+
+    if not label:
+        return inner
+    marker = _INLINE_MARKERS[tag]
+    return f"{lead}{marker}{label}{marker}{trail}"
+
+
+class _HTMLToMarkdown(HTMLParser):
+    """Rewrites inline HTML as Markdown; unsupported tags are dropped, text kept."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        # Each frame is (tag, attrs, text parts); the first frame is the output.
+        self.stack = [("", {}, [])]
+
+    def _emit(self, text):
+        self.stack[-1][2].append(text)
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "br":
+            self._emit(" ")
+        elif tag == "img":
+            if attrs.get("src"):
+                self._emit(f"![{attrs.get('alt') or ''}]({_markdown_url(attrs['src'])})")
+        elif tag == "a" or tag in _INLINE_MARKERS:
+            self.stack.append((tag, attrs, []))
+
+    def handle_endtag(self, tag):
+        if not any(frame[0] == tag for frame in self.stack[1:]):
+            return
+        while True:
+            open_tag, attrs, parts = self.stack.pop()
+            inner = "".join(parts)
+            if open_tag == tag:
+                self._emit(_render_tag(tag, attrs, inner))
+                return
+            self._emit(inner)  # tag left unclosed inside this one
+
+    def handle_data(self, data):
+        self._emit(data)
+
+    def result(self):
+        while len(self.stack) > 1:
+            self._emit_unclosed()
+        return "".join(self.stack[0][2])
+
+    def _emit_unclosed(self):
+        _, _, parts = self.stack.pop()
+        self._emit("".join(parts))
+
+
+def html_to_markdown(text):
+    """Convert HTML markup in an outline's text to Markdown."""
+    parser = _HTMLToMarkdown()
+    parser.feed(text)
+    parser.close()
+    return parser.result()
 
 
 def _month_key(node):
@@ -88,7 +180,7 @@ def opml_to_markdown_chrono(opml_path: str) -> str:
 
     def process_node(node, inside_day=False):
         node_type = node.get("type", "")
-        text = node.get("text", "").strip()
+        text = html_to_markdown(node.get("text", "")).strip()
 
         if inside_day is not False:
             # Everything inside a calendarDay becomes an indented bullet
